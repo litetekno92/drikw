@@ -44,6 +44,7 @@ class MyHomePage extends StatelessWidget {
         ),
         ListTile(title: Text('Item 1')),
         ListTile(title: Text('Item 2')),
+        CustomItem(),
         ListTile(title: Text('Item 3')),
         ListTile(title: Text('Item 4')),
         ListTile(title: Text('Item 5')),
@@ -58,6 +59,21 @@ class MyHomePage extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+class CustomItem extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      // When the user taps the button, show a snackbar
+      onTap: () {},
+      child: Row(children: [
+        Icon(Icons.home),
+        Text('Flat Button'),
+        Icon(Icons.arrow_right),
+      ]),
     );
   }
 }
