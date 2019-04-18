@@ -29,15 +29,25 @@ class MyHomePage extends StatelessWidget {
       drawer: Drawer(
           child: ListView(children: [
         DrawerHeader(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment(
+                0.8, 0.0), // 10% of the width, so there are ten blinds.
+            colors: [
+              const Color(0xFFFFFFEE),
+              const Color(0xFF999999)
+            ], // whitish to gray
+            tileMode: TileMode.repeated, // repeats the gradient over the canvas
+          )),
           child: Text('This is the drawer header'),
         ),
-        ListTile( title: Text('Item 1')),
-        ListTile( title: Text('Item 2')),
-        ListTile( title: Text('Item 3')),
-        ListTile( title: Text('Item 4')),
-        ListTile( title: Text('Item 5')),
-      ])
-      ),
+        ListTile(title: Text('Item 1')),
+        ListTile(title: Text('Item 2')),
+        ListTile(title: Text('Item 3')),
+        ListTile(title: Text('Item 4')),
+        ListTile(title: Text('Item 5')),
+      ])),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
