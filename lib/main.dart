@@ -49,18 +49,15 @@ class MyHomePage extends StatelessWidget {
                 child: Padding(padding: EdgeInsets.all(8.0),
                 child: Image.asset('images/flutter-logo.png',width:100,height:100))
               ),
-              Text('Flutter',style: TextStyle(fontSize: 24.0, color: Colors.white)),
+              Text('Flutter',style: TextStyle(fontSize: 12.0, color: Colors.white)),
             ],
           )),
         ),
-        ListTile(title: Text('Item 1')),
-        ListTile(title: Text('Item 2')),
+       
         CustomListTile(Icons.home, 'Home', () => {}),
         CustomListTile(Icons.person, 'Profile', () => {}),
         CustomListTile(Icons.settings, 'Settings', () => {}),
-        ListTile(title: Text('Item 3')),
-        ListTile(title: Text('Item 4')),
-        ListTile(title: Text('Item 5')),
+        
       ])),
       body: Center(
         child: Column(
@@ -90,7 +87,7 @@ class CustomListTile extends StatelessWidget {
               border: Border(
                   bottom: BorderSide(
                 color: Colors.grey.shade400,
-                width: 8.0,
+                width: 2.0,
               )),
             ),
             child: InkWell(
