@@ -47,7 +47,7 @@ class MyHomePage extends StatelessWidget {
                 borderRadius: BorderRadius.all( Radius.circular(50.0) ),
                 elevation: 10,
                 child: Padding(padding: EdgeInsets.all(8.0),
-                child: Image.asset('images/flutter-logo.png',width:100,height:100))
+                child: Image.asset('images/mediasen-logo.png',width:92,height:92))
               ),
               Text('Flutter',style: TextStyle(fontSize: 12.0, color: Colors.white)),
             ],
