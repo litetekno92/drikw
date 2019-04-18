@@ -40,13 +40,24 @@ class MyHomePage extends StatelessWidget {
             ], // whitish to gray
             tileMode: TileMode.repeated, // repeats the gradient over the canvas
           )),
-          child: Text('This is the drawer header'),
+          child: Container(
+              child: Column(
+            children: <Widget>[
+              Material(
+                borderRadius: BorderRadius.all( Radius.circular(50.0) ),
+                elevation: 10,
+                child: Padding(padding: EdgeInsets.all(8.0),
+                child: Image.asset('images/flutter-logo.png',width:100,height:100))
+              ),
+              Text('Flutter',style: TextStyle(fontSize: 24.0, color: Colors.white)),
+            ],
+          )),
         ),
         ListTile(title: Text('Item 1')),
         ListTile(title: Text('Item 2')),
-        CustomListTile(Icons.home,'Home', (){}),
-        CustomListTile(Icons.person,'Profile', (){}),
-        CustomListTile(Icons.settings,'Settings', (){}),
+        CustomListTile(Icons.home, 'Home', () => {}),
+        CustomListTile(Icons.person, 'Profile', () => {}),
+        CustomListTile(Icons.settings, 'Settings', () => {}),
         ListTile(title: Text('Item 3')),
         ListTile(title: Text('Item 4')),
         ListTile(title: Text('Item 5')),
@@ -66,33 +77,40 @@ class MyHomePage extends StatelessWidget {
 }
 
 class CustomListTile extends StatelessWidget {
- final IconData icon;
- final String text;
- final Function onTap;
-  CustomListTile(this.icon,this.text,this.onTap);
+  final IconData icon;
+  final String text;
+  final Function onTap;
+  CustomListTile(this.icon, this.text, this.onTap);
   @override
   Widget build(BuildContext context) {
     return Padding(
         padding: EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 0.0),
-        child: InkWell(
-          splashColor: Colors.orangeAccent,
-          // When the user taps the button, show a snackbar
-          onTap: onTap,
-          child: Container(
-              height: 40.0,
-              child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(children: [
-                      Icon(icon),
-                      Padding(
-                        padding: EdgeInsets.all(16.0),
-                        child: Text(text,
-                            style: TextStyle(fontSize: 16.0)),
-                      )
-                    ]),
-                    Icon(Icons.arrow_right),
-                  ])),
-        ));
+        child: Container(
+            decoration: BoxDecoration(
+              border: Border(
+                  bottom: BorderSide(
+                color: Colors.grey.shade400,
+                width: 8.0,
+              )),
+            ),
+            child: InkWell(
+              splashColor: Colors.orangeAccent,
+              // When the user taps the button, show a snackbar
+              onTap: onTap,
+              child: Container(
+                  height: 50.0,
+                  child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(children: [
+                          Icon(icon),
+                          Padding(
+                            padding: EdgeInsets.all(16.0),
+                            child: Text(text, style: TextStyle(fontSize: 16.0)),
+                          )
+                        ]),
+                        Icon(Icons.arrow_right),
+                      ])),
+            )));
   }
 }
