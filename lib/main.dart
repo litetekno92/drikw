@@ -44,7 +44,9 @@ class MyHomePage extends StatelessWidget {
         ),
         ListTile(title: Text('Item 1')),
         ListTile(title: Text('Item 2')),
-        CustomItem(),
+        CustomListTile(Icons.home,'Home', (){}),
+        CustomListTile(Icons.person,'Profile', (){}),
+        CustomListTile(Icons.settings,'Settings', (){}),
         ListTile(title: Text('Item 3')),
         ListTile(title: Text('Item 4')),
         ListTile(title: Text('Item 5')),
@@ -63,17 +65,34 @@ class MyHomePage extends StatelessWidget {
   }
 }
 
-class CustomItem extends StatelessWidget {
+class CustomListTile extends StatelessWidget {
+ final IconData icon;
+ final String text;
+ final Function onTap;
+  CustomListTile(this.icon,this.text,this.onTap);
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      // When the user taps the button, show a snackbar
-      onTap: () {},
-      child: Row(children: [
-        Icon(Icons.home),
-        Text('Flat Button'),
-        Icon(Icons.arrow_right),
-      ]),
-    );
+    return Padding(
+        padding: EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 0.0),
+        child: InkWell(
+          splashColor: Colors.orangeAccent,
+          // When the user taps the button, show a snackbar
+          onTap: onTap,
+          child: Container(
+              height: 40.0,
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(children: [
+                      Icon(icon),
+                      Padding(
+                        padding: EdgeInsets.all(16.0),
+                        child: Text(text,
+                            style: TextStyle(fontSize: 16.0)),
+                      )
+                    ]),
+                    Icon(Icons.arrow_right),
+                  ])),
+        ));
   }
 }
